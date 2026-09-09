@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Gateway · Abhinav TK</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    html, body { margin: 0; height: 100%; background: #0d0f11; overflow: hidden; }
+    #app { width: 100%; height: 100%; }
+    canvas { display: block; }
+    #hud {
+      position: fixed; left: 14px; bottom: 12px;
+      font: 12px/1.5 ui-monospace, Menlo, Consolas, monospace;
+      color: #87867F; user-select: none; pointer-events: none;
+      text-shadow: 0 1px 2px rgba(0,0,0,.8);
+    }
+    #hud b { color: #D97757; font-weight: 600; }
+    /* Terminal-styled chapter panel (shown on tap/enter later phases) */
+    #panel {
+      position: fixed; inset: auto 16px 64px 16px; max-width: 520px;
+      margin: 0 auto; padding: 14px 18px;
+      background: rgba(20, 19, 18, .88); border: 1px solid #3E3E38;
+      border-radius: 8px; backdrop-filter: blur(6px);
+      font: 13.5px/1.6 ui-monospace, Menlo, Consolas, monospace;
+      color: #F0EEE6; display: none;
+    }
+    #panel .tool { color: #D97757; }
+    #panel .dim { color: #87867F; }
+    #panel .bullet::before { content: "\23BF  "; color: #87867F; }
+    #panel.show { display: block; }
+    #hint {
+      position: fixed; left: 0; right: 0; bottom: 96px; text-align: center;
+      font: 13px/1.4 ui-monospace, Menlo, Consolas, monospace;
+      color: #87867F; letter-spacing: .08em;
+      text-shadow: 0 1px 3px rgba(0,0,0,.9);
+      pointer-events: none; user-select: none;
+      animation: hintpulse 2.6s ease-in-out infinite;
+    }
+    @keyframes hintpulse { 50% { opacity: .45; } }
+    @media (prefers-reduced-motion: reduce) { #hint { animation: none; } }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="hud"><b>THE GATEWAY</b> · phase 1 · <span id="q">measuring…</span></div>
+  <div id="hint">~ scroll or drag to walk the aisle ~</div>
+  <div id="panel" role="dialog" aria-modal="false"></div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

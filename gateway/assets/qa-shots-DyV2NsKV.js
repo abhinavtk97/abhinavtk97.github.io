@@ -1,0 +1,1 @@
+async function e(e,t,n){let{renderer:r,composer:i,camera:a,cameraAt:o}=e;for(let e of t){typeof e.scroll==`number`?o(e.scroll):(a.position.set(...e.pos),a.lookAt(...e.look)),a.updateMatrixWorld(!0),r.info.reset(),i.render();let t=r.domElement.toDataURL(`image/png`);n.push({name:e.name,url:t}),await new Promise(e=>setTimeout(e,60))}}export{e as captureShots};
